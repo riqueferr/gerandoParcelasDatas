@@ -1,0 +1,41 @@
+package br.com.teste;
+
+public class IncrementoData {
+
+	public static void main(String[] args) {
+		String parcela = "12";
+		String dataVencimento = "07/12/2022";
+		int mes2 = Integer.parseInt(dataVencimento.substring(3, 5));
+		int countMes = 1;
+		int mes = countMes;
+		
+		for(int i = 0; i < Integer.parseInt(parcela); i++) {
+			String parcela2 = String.valueOf(1 + i);
+			if(mes2 <= 12) {
+				if(String.valueOf(mes2).length() == 1) {
+					System.out.println(dataVencimento.substring(0,3).concat("0" + String.valueOf(mes2) + "/").concat(dataVencimento.substring(6,10)));					
+				}else {
+					System.out.println(dataVencimento.substring(0,3).concat(String.valueOf(mes2) + "/").concat(dataVencimento.substring(6,10)));
+				}
+				
+				
+				mes2 = Integer.parseInt(dataVencimento.substring(3,5)) + countMes;
+			} else {
+				int mes3 = countMes;
+				String ano = dataVencimento.substring(6, 10);
+				int ert = Integer.parseInt(ano) + 1;
+
+				if(String.valueOf(mes3).length() == 1) {
+					System.out.println(dataVencimento.substring(0,3).concat("0" + String.valueOf(mes3) + "/").concat(String.valueOf(ert)));					
+				}else {
+					System.out.println(dataVencimento.substring(0,3).concat(String.valueOf(mes3) + "/").concat(String.valueOf(ert)));
+				}
+				countMes++;
+
+			}
+//			System.out.println(parcela2);
+		}
+
+	}
+
+}
